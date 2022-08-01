@@ -1,19 +1,28 @@
-const express = require('express');
-const app = express();
-const dotenv=require("dotenv")
-dotenv.config({ path: './local.env' })
-const port=process.env.PORT ||301
-const cors=require('cors')
+const connectToMongo = require('./db');
+const express = require('express')
+var cors = require('cors') 
+const dotenv=require('dotenv');
+dotenv.config({path:"./local.env"})
+connectToMongo();
+const app = express()
+const port = process.env.PORT|| 5000
+
 app.use(cors())
-const api=require('./apidata.json')
+app.use(express.json())
+app.use('/api/auth', require('./routes/user'))
 
-app.get('/', function (req, res) {
-   res.send('Hello World');
-})
-app.get('/api', function (req, res) {
-   res.send(api);
+const json={
+  "karan":true,
+  "age":23
+}
+
+
+app.get('/api/auth',(req,res)=>{
+  res.send(json)  
 })
 
-app.listen(process.env.PORT,()=>{
-    console.log(`Server is listening on port http://localhost:${port}`);
+
+
+app.listen(port, () => {
+  console.log(`iNotebook backend listening at http://localhost:${port}`)
 })
