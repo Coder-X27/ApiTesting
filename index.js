@@ -20,6 +20,8 @@ const json={
 app.get('/api/auth',(req,res)=>{
   res.send(json)  
 })
+app.get('/api/auth/getuser',(req,res)=>{
+})
 
 
 

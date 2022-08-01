@@ -14,6 +14,7 @@ router.post('/createuser', async (req, res) => {
             success:true,
             user,
         })
+        console.log(user);
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
@@ -23,7 +24,7 @@ router.post('/createuser', async (req, res) => {
 router.get("/getuser", async(req, res) => {
     try {
         user = await User.find({});
-        res.json(user)
+        res.send(user)
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
