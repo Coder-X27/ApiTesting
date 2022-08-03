@@ -24,9 +24,9 @@ exports.getUsers=async(req,res)=>{
     try{
         const user=await User.find()
         res.status(201).json({
-            success:true,
             user
         })
+        res.send(user)
     }
     catch(err){
         res.status(500).json({

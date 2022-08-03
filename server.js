@@ -1,4 +1,5 @@
 const app=require('./app')
+
 const connectToMongo =require('./config/database')
 
 connectToMongo()
