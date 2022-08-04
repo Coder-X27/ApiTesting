@@ -21,17 +21,26 @@ function App() {
         user.map((value) => {
           return (
             <>
-            <div className="card" key={value._id}>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">{value.name}</li>
-                  <li className="list-group-item">{value.email}</li>
-                  <li className="list-group-item">{value.password}</li>
-                </ul>
-            </div>
+              <div class="project-card card" key={value._id}  >
+                <div class="card-body">
+                  <h5 class="card-title">{value.name}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{value.email}</h6>
+                  <p class="card-text">{value.password}</p>
+                </div>
+              </div>
             </>
           )
         })
       }
+      {/* <hr />
+      <hr />
+      <hr />
+      <div className="inputs">
+        <input name='name' type="text" />
+        <input name='email' type="text" />
+        <input name='password' type="password" />
+        <button></button>
+      </div> */}
     </>
   );
 }
