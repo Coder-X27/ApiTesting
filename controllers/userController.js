@@ -26,7 +26,6 @@ exports.getUsers=async(req,res)=>{
         res.status(201).json({
             user
         })
-        res.send(user)
     }
     catch(err){
         res.status(500).json({
